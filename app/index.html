@@ -6,6 +6,8 @@
     <title>Galvanize Eats</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="css/app.css">
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/js/affix.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="js/app.js"></script>
@@ -26,25 +28,27 @@
     <div class="container-fluid">
       <div class="row">
 
-        <div class="col-md-2 sidebar-nav">
-          <div class="panel panel-info">
-            <div class="panel-heading">
-              <p class="text-center">Authors</p>
-              <img class="center-block" width="50" height="50" src="img/authors.png" alt="Authors Logo">
+        <div class="col-md-2 sidebar">
+          <div class="affix" data-spy="affix" data-offset-top="70">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <p class="text-center">Authors</p>
+                <img class="center-block" width="50" height="50" src="img/authors.png" alt="Authors Logo">
+              </div>
+              <div class="panel_body">
+                <a href="#/authors" class="btn btn-primary btn-block active">View all Authors</a>
+                <a href="#/authors/new" class="btn btn-primary btn-block active">Add an Author</a>
+              </div>
             </div>
-            <div class="panel_body">
-              <a href="#/authors" class="btn btn-primary btn-block active">View all Authors</a>
-              <a href="#/authors/new" class="btn btn-primary btn-block active">Add an Author</a>
-            </div>
-          </div>
-          <div class="panel panel-info">
-            <div class="panel-heading">
-              <p class="text-center">Books</p>
-              <img class="center-block" width="50" height="50" src="img/books.png" alt="Books Logo">
-            </div>
-            <div class="panel_body">
-              <a href="#/books" class="btn btn-primary btn-block active">View all Books</a>
-              <a href="#/books/new" class="btn btn-primary btn-block active">Add a Book</a>
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <p class="text-center">Books</p>
+                <img class="center-block" width="50" height="50" src="img/books.png" alt="Books Logo">
+              </div>
+              <div class="panel_body">
+                <a href="#/books" class="btn btn-primary btn-block active">View all Books</a>
+                <a href="#/books/new" class="btn btn-primary btn-block active">Add a Book</a>
+              </div>
             </div>
           </div>
         </div>

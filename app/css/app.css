@@ -10,3 +10,23 @@
   width: 45px;
   height: 45px;
 }
+
+.book-container {
+  padding-bottom: 20px;
+}
+
+.sidebar {
+  padding-left: 15px;
+  padding-right: 5px;
+}
+
+.sidebar .affix-top {
+  /*position: static;*/
+  margin-top: 30px;
+  width: 179.844px;
+}
+
+.sidebar .affix {
+  top: 43px;
+  width: 179.844px;
+}
