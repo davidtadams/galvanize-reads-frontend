@@ -11,10 +11,6 @@
   height: 45px;
 }
 
-.book-container {
-  padding-bottom: 20px;
-}
-
 .sidebar {
   padding-left: 15px;
   padding-right: 5px;
@@ -31,8 +27,16 @@
   width: 179.844px;
 }
 
+.jumbotron a {
+  margin-top: 20px;
+}
+
 .book-header-btn {
   margin-left: 10px;
+}
+
+.book-container {
+  padding-bottom: 20px;
 }
 
 .book-image {

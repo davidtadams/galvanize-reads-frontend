@@ -6,6 +6,9 @@ var gEatsApp = angular.module('gEatsApp', [
 gEatsApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider
+      .when('/', {
+        templateUrl: 'partials/landing.html'
+      })
       .when('/books', {
         templateUrl: 'partials/all-books.html',
         controller: 'BookListCtrl'
