@@ -1,0 +1,25 @@
+<div ng-repeat="book in books" class="container book-container">
+  <div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-2 book-image">
+      <a href="#/book/{{book.id}}">
+        <img ng-src="{{book.cover_url}}" class="img-responsive">
+      </a>
+    </div>
+    <div class="col-md-6">
+      <div class="book-header">
+        <a href="#/book/delete" class="btn btn-danger book-header-btn pull-right">Delete</a>
+        <a href="#/book/edit/{{book.id}}" class="btn btn-info book-header-btn pull-right">Edit</a>
+        <a href="#/book/{{book.id}}">
+          <h2>{{book.title}}</h2>
+        </a>
+        <p>By: <a ng-repeat="author in book.authors" href="#/author/{{author.author_id}}">{{author.first_name}} {{author.last_name}}{{$last ? '': ', '}}</a></p>
+      </div>
+      <div class="book-body">
+        <h3>{{book.genre}}</h3>
+        <p>{{book.description}}</p>
+      </div>
+    </div>
+  </div>
+</div>
