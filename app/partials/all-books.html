@@ -1,8 +1,6 @@
 <div ng-repeat="book in books" class="container book-container">
   <div class="row">
-    <div class="col-md-1">
-    </div>
-    <div class="col-md-2 book-image">
+    <div class="col-md-2 col-md-offset-1 book-image">
       <a href="#/book/{{book.id}}">
         <img ng-src="{{book.cover_url}}" class="img-responsive">
       </a>

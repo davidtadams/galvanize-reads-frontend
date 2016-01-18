@@ -42,3 +42,11 @@
 .book-image {
   margin-top: 25px;
 }
+
+.add-book-form {
+  margin-bottom: 100px;
+}
+
+select.form-control.add-author-select {
+  width: 75%;
+}

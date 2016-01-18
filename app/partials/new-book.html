@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-md-5 col-md-offset-1">
+    <div class="page-header">
+      <h1>Add a Book</h1>
+    </div>
+    <form class="add-book-form">
+      <div class="form-group">
+        <label for="bookTitle">Title</label>
+        <input type="text" class="form-control" name="bookTitle" id="bookTitle" placeholder="Add a title" required>
+      </div>
+      <div class="form-group">
+        <label for="bookGenre">Genre</label>
+        <input type="text" class="form-control" name="bookGenre" id="bookGenre" placeholder="Add a genre" required>
+      </div>
+      <div class="form-group">
+        <label for="bookURL">Cover Image URL</label>
+        <input type="text" class="form-control" name="bookURL" id="bookURL" placeholder="Add a cover image url" required>
+      </div>
+      <div class="form-group">
+        <label for="bookDescription">Description</label>
+        <textarea class="form-control" name="bookDescription" id="bookDescription" rows="5" placeholder="Add a description" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="bookAuthors">Authors</label>
+        <div class="panel panel-default" id="bookAuthors">
+          <ul class="list-group">
+            <li class="list-group-item">Author 1<button type="button" name="deleteAuthorBtn" class="btn btn-danger btn-xs pull-right">Remove</button></li>
+            <li class="list-group-item">Author 2<button type="button" name="deleteAuthorBtn" class="btn btn-danger btn-xs pull-right">Remove</button></li>
+            <li class="list-group-item">Author 3<button type="button" name="deleteAuthorBtn" class="btn btn-danger btn-xs pull-right">Remove</button></li>
+            <li class="list-group-item">Author 4<button type="button" name="deleteAuthorBtn" class="btn btn-danger btn-xs pull-right">Remove</button></li>
+          </ul>
+        </div>
+      </div>
+      <div class="form-group form-inline">
+        <select class="form-control add-author-select" name="addAuthor">
+          <option>Author 1</option>
+          <option>Author 2</option>
+          <option>Author 3</option>
+          <option>Author 4</option>
+          <option>Author 5</option>
+          <option>Author 6</option>
+        </select>
+        <button class="btn btn-info btn-sm" type="button" name="addAuthorBtn">Add Author</button>
+      </div>
+      <button type="submit" class="btn btn-lg btn-success center-block" name="addBookBtn">Add a book</button>
+    </form>
+  </div>
+</div>
