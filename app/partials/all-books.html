@@ -12,7 +12,8 @@
         <a href="#/book/{{book.id}}">
           <h2>{{book.title}}</h2>
         </a>
-        <p>By: <a ng-repeat="author in book.authors" href="#/author/{{author.author_id}}">{{author.first_name}} {{author.last_name}}{{$last ? '': ', '}}</a></p>
+        <p ng-hide="book.authors[0].first_name">No Authors added!</p>
+        <p ng-show="book.authors[0].first_name">By: <a ng-repeat="author in book.authors" href="#/author/{{author.author_id}}">{{author.first_name}} {{author.last_name}}{{$last ? '' : ', '}}</a></p>
       </div>
       <div class="book-body">
         <h3>{{book.genre}}</h3>

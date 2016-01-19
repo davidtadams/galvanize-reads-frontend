@@ -49,6 +49,7 @@ gEatsControllers.controller('AddBookCtrl', ['$scope', '$location', '$http',
           authors: authors
         }
       }).then(function successCallback(response) {
+        console.log('Success adding book: ', response);
         $location.path('/books');
       }, function errorCallback(response) {
         console.log('Error adding book: ', response);
