@@ -307,3 +307,11 @@ gEatsControllers.controller('DeleteAuthorCtrl', ['$scope', '$location', '$http',
     }
   }
 ]);
+
+gEatsControllers.controller('AuthorDetailCtrl', ['$scope', '$location', '$http', '$routeParams',
+  function($scope, $location, $http, $routeParams) {
+    $http.get('http://localhost:3000/authors/' + $routeParams.authorID).success(function(author) {
+      $scope.author = author.data[0];
+    });
+  }
+]);
