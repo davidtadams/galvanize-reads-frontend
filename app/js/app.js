@@ -33,10 +33,22 @@ gEatsApp.config(['$routeProvider',
         templateUrl: 'partials/all-authors.html',
         controller: 'AuthorListCtrl'
       })
+      // .when('/author/:authorID', {
+      //   templateUrl: 'partials/one-author.html',
+      //   controller: 'AuthorDetailCtrl'
+      // })
       .when('/author/add/new', {
         templateUrl: 'partials/new-author.html',
         controller: 'AddAuthorCtrl'
       })
+      .when('/author/:authorID/delete', {
+        templateUrl: 'partials/delete-author.html',
+        controller: 'DeleteAuthorCtrl'
+      })
+      // .when('/author/:authorID/edit', {
+      // templateUrl: 'partials/edit-author.html',
+      // controller: 'EditAuthorCtrl'
+      // })
       .otherwise({
         redirectTo: '/'
       });

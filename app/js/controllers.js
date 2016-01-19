@@ -286,3 +286,24 @@ gEatsControllers.controller('AddAuthorCtrl', ['$scope', '$location', '$http',
     }
   }
 ]);
+
+gEatsControllers.controller('DeleteAuthorCtrl', ['$scope', '$location', '$http', '$routeParams',
+  function($scope, $location, $http, $routeParams) {
+    $http.get('http://localhost:3000/authors/' + $routeParams.authorID).success(function(author) {
+      $scope.author = author.data[0];
+    });
+
+    $scope.deleteAuthor = function(authorID) {
+      $http.delete('http://localhost:3000/authors/' + authorID + '/delete')
+        .then(
+          function(response) {
+            console.log('Delete successful: ', response);
+            $location.path('/authors');
+          },
+          function(response) {
+            console.log('Delete did not work: ', response);
+          }
+        )
+    }
+  }
+]);

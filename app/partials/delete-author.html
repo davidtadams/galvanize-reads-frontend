@@ -1,0 +1,21 @@
+<div class="container author-container">
+  <div class="row">
+    <div class="col-md-2 col-md-offset-1 author-image">
+      <img ng-src="{{author.portrait_url}}" class="img-responsive">
+    </div>
+    <div class="col-md-6">
+      <div class="author-header">
+        <h2>{{author.first_name}} {{author.last_name}}</h2>
+        <p>{{author.bio}}</p>
+      </div>
+      <div class="author-body">
+        <h4>Books:</h4>
+        <p ng-hide="author.books[0].book_title">No books added!</p>
+        <div class="list-group">
+          <a ng-show="author.books[0].book_title" ng-repeat="book in author.books" href="#/book/{{book.book_id}}" class="list-group-item">{{book.book_title}}</a>
+        </div>
+      </div>
+      <button ng-click="deleteAuthor(author.id)" class="btn btn-lg btn-danger btn-block delete-author-btn" type="button" name="button">Delete this Author</button>
+    </div>
+  </div>
+</div>
