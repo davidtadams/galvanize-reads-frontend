@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-5 col-md-offset-1">
     <div class="page-header">
-      <h1>Add an Author</h1>
+      <h1>Edit an Author</h1>
     </div>
     <form ng-submit="submit()" class="add-author-form">
       <div class="form-group">
@@ -24,7 +24,8 @@
         <label for="authorBooks">Books</label>
         <div class="panel panel-default" id="authorBooks">
           <ul class="list-group new-book-list">
-            <li class="list-group-item book-list-placeholder">Pick a book below and click add</li>
+            <li ng-hide="author.books[0].book_title" class="list-group-item author-list-placeholder">Pick a book below and click add</li>
+            <li ng-show="author.books[0].book_title" ng-repeat="book in author.books" class="list-group-item" data-authorid="{{book.book_id}}">{{book.book_title}}<button type="button" name="deleteBookBtn" class="btn btn-danger btn-xs edit-remove-book pull-right">Remove</button></li>
           </ul>
         </div>
       </div>
@@ -35,7 +36,7 @@
         </select>
         <button class="btn btn-info btn-sm edit-add-book" type="button" name="addBookBtn">Add Book</button>
       </div>
-      <button type="submit" class="btn btn-lg btn-success center-block" name="editAuthorBtn">Add this Author</button>
+      <button type="submit" class="btn btn-lg btn-success center-block" name="editAuthorBtn">Edit this Author</button>
     </form>
   </div>
 </div>

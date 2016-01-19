@@ -45,10 +45,10 @@ gEatsApp.config(['$routeProvider',
         templateUrl: 'partials/delete-author.html',
         controller: 'DeleteAuthorCtrl'
       })
-      // .when('/author/:authorID/edit', {
-      // templateUrl: 'partials/edit-author.html',
-      // controller: 'EditAuthorCtrl'
-      // })
+      .when('/author/:authorID/edit', {
+      templateUrl: 'partials/edit-author.html',
+      controller: 'EditAuthorCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

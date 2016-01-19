@@ -25,7 +25,7 @@
         <div class="panel panel-default" id="bookAuthors">
           <ul class="list-group new-author-list">
             <li ng-hide="book.authors[0].first_name" class="list-group-item author-list-placeholder">Pick an author below and click add</li>
-            <li ng-show="book.authors[0].first_name" ng-repeat="author in book.authors" class="list-group-item" data-authorid="{{author.author_id}}">{{author.first_name}} {{author.last_name}}<button ng-click="ngRemoveAuthor()" type="button" name="deleteAuthorBtn" class="btn btn-danger btn-xs edit-remove-author pull-right">Remove</button></li>
+            <li ng-show="book.authors[0].first_name" ng-repeat="author in book.authors" class="list-group-item" data-authorid="{{author.author_id}}">{{author.first_name}} {{author.last_name}}<button type="button" name="deleteAuthorBtn" class="btn btn-danger btn-xs edit-remove-author pull-right">Remove</button></li>
           </ul>
         </div>
       </div>
