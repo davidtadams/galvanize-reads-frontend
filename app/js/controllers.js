@@ -213,3 +213,76 @@ gEatsControllers.controller('AuthorListCtrl', ['$scope', '$http',
     });
   }
 ]);
+
+gEatsControllers.controller('AddAuthorCtrl', ['$scope', '$location', '$http',
+  function($scope, $location, $http) {
+    $scope.booksToAdd = {};
+
+    $http.get('http://localhost:3000/books').success(function(books) {
+      $scope.books = books.data;
+    });
+
+    $scope.submit = function() {
+      var books = [];
+      for (var prop in $scope.booksToAdd) {
+        books.push(prop);
+      }
+
+      $http({
+        method: 'POST',
+        url: 'http://localhost:3000/authors/new',
+        data: {
+          first_name: $scope.author.first_name,
+          last_name: $scope.author.last_name,
+          portrait_url: $scope.author.portrait_url,
+          bio: $scope.author.bio,
+          books: books
+        }
+      }).then(function successCallback(response) {
+        console.log('Success adding author: ', response);
+        $location.path('/authors');
+      }, function errorCallback(response) {
+        console.log('Error adding author: ', response);
+      });
+    };
+
+    $('body').off("click", ".edit-remove-book");
+    $('body').off("click", ".edit-add-book");
+    $('body').on("click", ".edit-remove-book", removeBook);
+    $('body').on("click", ".edit-add-book", addBook);
+
+    function addBook(event) {
+      var book = $('.add-book-select').val()
+      if (book != null) {
+        $('.book-list-placeholder').remove();
+        $('option[value="' + book + '"]').remove();
+
+        book = book.split(',');
+        $scope.booksToAdd[book[0]] = book[1];
+
+        $('.new-book-list').append('<li class="list-group-item" data-bookid=' +
+          book[0] + '><p>' + book[1] +
+          '</p><button type="button" name="deleteBookBtn" class="btn btn-danger btn-xs pull-right edit-remove-book">Remove</button></li>'
+        );
+        $('select').val('Pick a Book');
+        $('button[name="deleteBookBtn"]').off('click');
+        $('button[name="deleteBookBtn"]').on('click', removeBook);
+      }
+    }
+
+    function removeBook(event) {
+      var bookID = event.currentTarget.parentElement.dataset.bookid;
+      var bookTitle = event.currentTarget.previousSibling.innerText;
+      delete $scope.booksToAdd[bookID];
+      $('.add-book-select').append('<option ng-repeat="book in books" value="' + bookID + ',' + bookTitle + '" ' +
+        'class="ng-binding ng-scope">' + bookTitle + '</option>'
+      );
+      if ($('.new-book-list').children().length <= 1) {
+        $(event.currentTarget.parentElement).remove();
+        $('.new-book-list').append('<li class="list-group-item book-list-placeholder">Pick a book below</li>');
+      } else {
+        $(event.currentTarget.parentElement).remove();
+      }
+    }
+  }
+]);

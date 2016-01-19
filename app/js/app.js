@@ -33,6 +33,10 @@ gEatsApp.config(['$routeProvider',
         templateUrl: 'partials/all-authors.html',
         controller: 'AuthorListCtrl'
       })
+      .when('/author/add/new', {
+        templateUrl: 'partials/new-author.html',
+        controller: 'AddAuthorCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

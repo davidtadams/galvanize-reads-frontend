@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-5 col-md-offset-1">
+    <div class="page-header">
+      <h1>Add an Author</h1>
+    </div>
+    <form ng-submit="submit()" class="add-author-form">
+      <div class="form-group">
+        <label for="authorFName">First Name</label>
+        <input type="text" ng-model="author.first_name" class="form-control" name="authorFName" id="authorFName" placeholder="Add a first name" required>
+      </div>
+      <div class="form-group">
+        <label for="authorLName">Last Name</label>
+        <input type="text" ng-model="author.last_name" class="form-control" name="authorLName" id="authorLName" placeholder="Add a last name" required>
+      </div>
+      <div class="form-group">
+        <label for="authorURL">Portrait Image URL</label>
+        <input type="text" ng-model="author.portrait_url" class="form-control" name="authorURL" id="authorURL" placeholder="Add a portrait image url" required>
+      </div>
+      <div class="form-group">
+        <label for="authorBio">Biography</label>
+        <textarea ng-model="author.bio" class="form-control" name="authorBio" id="authorBio" rows="5" placeholder="Add a biography" required></textarea>
+      </div>
+
+
+      <div class="form-group">
+        <label for="authorBooks">Books</label>
+        <div class="panel panel-default" id="authorBooks">
+          <ul class="list-group new-book-list">
+            <li class="list-group-item book-list-placeholder">Pick a book below and click add</li>
+          </ul>
+        </div>
+      </div>
+      <div class="form-group form-inline">
+        <select class="form-control add-book-select" name="addBook">
+          <option value='Pick a Book' disabled>Pick a book to add</option>
+          <option ng-repeat="book in books" value="{{book.id}},{{book.title}}">{{book.title}}</option>
+        </select>
+        <button class="btn btn-info btn-sm edit-add-book" type="button" name="addBookBtn">Add Book</button>
+      </div>
+      <button type="submit" class="btn btn-lg btn-success center-block" name="editAuthorBtn">Add this Author</button>
+    </form>
+  </div>
+</div>

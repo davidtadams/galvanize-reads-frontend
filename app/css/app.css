@@ -87,3 +87,7 @@ select.form-control.add-book-select {
 .delete-author-btn {
   margin-top: 50px;
 }
+
+.new-book-list p {
+  display: inline;
+}
