@@ -115,6 +115,7 @@ gEatsControllers.controller('EditBookCtrl', ['$scope', '$location', '$http', '$r
                   $scope.book.authors[i].first_name + ' '
                   + $scope.book.authors[i].last_name;
             }
+            delete $scope.authorsToAdd['No authors added'];
             //only add authors that are not already on the book in $scope.authors
             $scope.authors = authors.data.filter(function(value) {
               for (var i = 0; i < $scope.book.authors.length; i++) {
@@ -153,6 +154,8 @@ gEatsControllers.controller('EditBookCtrl', ['$scope', '$location', '$http', '$r
       });
     };
 
+    $('body').off("click", ".edit-remove-author");
+    $('body').off("click", ".edit-add-author");
     $('body').on("click", ".edit-remove-author", removeAuthor);
     $('body').on("click", ".edit-add-author", addAuthor);
 
