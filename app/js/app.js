@@ -17,7 +17,7 @@ gEatsApp.config(['$routeProvider',
         templateUrl: 'partials/one-book.html',
         controller: 'BookDeatilCtrl'
       })
-      .when('/book/new', {
+      .when('/book/add/new', {
         templateUrl: 'partials/new-book.html',
         controller: 'AddBookCtrl'
       })
@@ -25,10 +25,10 @@ gEatsApp.config(['$routeProvider',
         templateUrl: 'partials/delete-book.html',
         controller: 'DeleteBookCtrl'
       })
-      // .when('/books/:bookID/edit', {
-      //   templateUrl: '',
-      //   controller: ''
-      // })
+      .when('/book/:bookID/edit', {
+        templateUrl: 'partials/edit-book.html',
+        controller: 'EditBookCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
