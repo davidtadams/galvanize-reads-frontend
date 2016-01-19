@@ -92,3 +92,11 @@ gEatsControllers.controller('DeleteBookCtrl', ['$scope', '$location', '$http', '
     }
   }
 ]);
+
+gEatsControllers.controller('BookDeatilCtrl', ['$scope', '$location', '$http', '$routeParams',
+  function($scope, $location, $http, $routeParams) {
+    $http.get('http://localhost:3000/books/' + $routeParams.bookID).success(function(book) {
+      $scope.book = book.data[0];
+    });
+  }
+]);

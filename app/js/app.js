@@ -13,10 +13,10 @@ gEatsApp.config(['$routeProvider',
         templateUrl: 'partials/all-books.html',
         controller: 'BookListCtrl'
       })
-      // .when('/books/:bookID', {
-      //   templateUrl: 'partials/one-book.html',
-      //   controller: 'BookDeatilCtrl'
-      // })
+      .when('/book/:bookID', {
+        templateUrl: 'partials/one-book.html',
+        controller: 'BookDeatilCtrl'
+      })
       .when('/book/new', {
         templateUrl: 'partials/new-book.html',
         controller: 'AddBookCtrl'
