@@ -24,13 +24,13 @@
         <label for="bookAuthors">Authors</label>
         <div class="panel panel-default" id="bookAuthors">
           <ul class="list-group new-author-list">
-            <li class="list-group-item author-list-placeholder">Pick an author below</li>
+            <li class="list-group-item author-list-placeholder">Pick an author below and click add</li>
           </ul>
         </div>
       </div>
       <div class="form-group form-inline">
         <select ng-model="book.addAuthor" ng-init="book.addAuthor = 'Pick an Author'" class="form-control add-author-select" name="addAuthor">
-          <option value='Pick an Author' disabled>Pick an Author</option>
+          <option value='Pick an Author' disabled>Pick an Author to add</option>
           <option ng-repeat="author in authors" value="{{author.id}},{{author.first_name}} {{author.last_name}}">{{author.first_name}} {{author.last_name}}</option>
         </select>
         <button ng-click="addAuthor(book.addAuthor)" class="btn btn-info btn-sm" type="button" name="addAuthorBtn">Add Author</button>
