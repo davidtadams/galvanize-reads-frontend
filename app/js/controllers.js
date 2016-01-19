@@ -7,7 +7,7 @@ var gEatsControllers = angular.module('gEatsControllers', []);
 -----------------------------------------------------------------------------*/
 gEatsControllers.controller('BookListCtrl', ['$scope', '$http',
   function($scope, $http) {
-    $http.get('http://localhost:3000/books').success(function(books) {
+    $http.get('https://galvanizereads.herokuapp.com/books').success(function(books) {
       $scope.books = books.data;
     });
   }
@@ -17,7 +17,7 @@ gEatsControllers.controller('AddBookCtrl', ['$scope', '$location', '$http',
   function($scope, $location, $http) {
     $scope.authorsToAdd = {};
 
-    $http.get('http://localhost:3000/authors').success(function(authors) {
+    $http.get('https://galvanizereads.herokuapp.com/authors').success(function(authors) {
       $scope.authors = authors.data;
     });
 
@@ -45,7 +45,7 @@ gEatsControllers.controller('AddBookCtrl', ['$scope', '$location', '$http',
 
       $http({
         method: 'POST',
-        url: 'http://localhost:3000/books/new',
+        url: 'https://galvanizereads.herokuapp.com/books/new',
         data: {
           title: $scope.book.title,
           genre: $scope.book.genre,
@@ -79,12 +79,12 @@ gEatsControllers.controller('AddBookCtrl', ['$scope', '$location', '$http',
 
 gEatsControllers.controller('DeleteBookCtrl', ['$scope', '$location', '$http', '$routeParams',
   function($scope, $location, $http, $routeParams) {
-    $http.get('http://localhost:3000/books/' + $routeParams.bookID).success(function(book) {
+    $http.get('https://galvanizereads.herokuapp.com/books/' + $routeParams.bookID).success(function(book) {
       $scope.book = book.data[0];
     });
 
     $scope.deleteBook = function(bookID) {
-      $http.delete('http://localhost:3000/books/' + bookID + '/delete')
+      $http.delete('https://galvanizereads.herokuapp.com/books/' + bookID + '/delete')
         .then(
           function(response) {
             console.log('Delete successful: ', response);
@@ -100,7 +100,7 @@ gEatsControllers.controller('DeleteBookCtrl', ['$scope', '$location', '$http', '
 
 gEatsControllers.controller('BookDeatilCtrl', ['$scope', '$location', '$http', '$routeParams',
   function($scope, $location, $http, $routeParams) {
-    $http.get('http://localhost:3000/books/' + $routeParams.bookID).success(function(book) {
+    $http.get('https://galvanizereads.herokuapp.com/books/' + $routeParams.bookID).success(function(book) {
       $scope.book = book.data[0];
     });
   }
@@ -108,9 +108,9 @@ gEatsControllers.controller('BookDeatilCtrl', ['$scope', '$location', '$http', '
 
 gEatsControllers.controller('EditBookCtrl', ['$scope', '$location', '$http', '$routeParams',
   function($scope, $location, $http, $routeParams) {
-    $http.get('http://localhost:3000/books/' + $routeParams.bookID)
+    $http.get('https://galvanizereads.herokuapp.com/books/' + $routeParams.bookID)
       .success(function(book) {
-        $http.get('http://localhost:3000/authors')
+        $http.get('https://galvanizereads.herokuapp.com/authors')
           .success(function(authors) {
             $scope.book = book.data[0];
             //add already existing authors to authorsToAdd
@@ -143,7 +143,7 @@ gEatsControllers.controller('EditBookCtrl', ['$scope', '$location', '$http', '$r
 
       $http({
         method: 'PUT',
-        url: 'http://localhost:3000/books/' + $routeParams.bookID + '/edit',
+        url: 'https://galvanizereads.herokuapp.com/books/' + $routeParams.bookID + '/edit',
         data: {
           title: $scope.book.title,
           genre: $scope.book.genre,
@@ -208,7 +208,7 @@ gEatsControllers.controller('EditBookCtrl', ['$scope', '$location', '$http', '$r
 -----------------------------------------------------------------------------*/
 gEatsControllers.controller('AuthorListCtrl', ['$scope', '$http',
   function($scope, $http) {
-    $http.get('http://localhost:3000/authors').success(function(authors) {
+    $http.get('https://galvanizereads.herokuapp.com/authors').success(function(authors) {
       $scope.authors = authors.data;
     });
   }
@@ -218,7 +218,7 @@ gEatsControllers.controller('AddAuthorCtrl', ['$scope', '$location', '$http',
   function($scope, $location, $http) {
     $scope.booksToAdd = {};
 
-    $http.get('http://localhost:3000/books').success(function(books) {
+    $http.get('https://galvanizereads.herokuapp.com/books').success(function(books) {
       $scope.books = books.data;
     });
 
@@ -230,7 +230,7 @@ gEatsControllers.controller('AddAuthorCtrl', ['$scope', '$location', '$http',
 
       $http({
         method: 'POST',
-        url: 'http://localhost:3000/authors/new',
+        url: 'https://galvanizereads.herokuapp.com/authors/new',
         data: {
           first_name: $scope.author.first_name,
           last_name: $scope.author.last_name,
@@ -289,12 +289,12 @@ gEatsControllers.controller('AddAuthorCtrl', ['$scope', '$location', '$http',
 
 gEatsControllers.controller('DeleteAuthorCtrl', ['$scope', '$location', '$http', '$routeParams',
   function($scope, $location, $http, $routeParams) {
-    $http.get('http://localhost:3000/authors/' + $routeParams.authorID).success(function(author) {
+    $http.get('https://galvanizereads.herokuapp.com/authors/' + $routeParams.authorID).success(function(author) {
       $scope.author = author.data[0];
     });
 
     $scope.deleteAuthor = function(authorID) {
-      $http.delete('http://localhost:3000/authors/' + authorID + '/delete')
+      $http.delete('https://galvanizereads.herokuapp.com/authors/' + authorID + '/delete')
         .then(
           function(response) {
             console.log('Delete successful: ', response);
@@ -310,7 +310,7 @@ gEatsControllers.controller('DeleteAuthorCtrl', ['$scope', '$location', '$http',
 
 gEatsControllers.controller('AuthorDetailCtrl', ['$scope', '$location', '$http', '$routeParams',
   function($scope, $location, $http, $routeParams) {
-    $http.get('http://localhost:3000/authors/' + $routeParams.authorID).success(function(author) {
+    $http.get('https://galvanizereads.herokuapp.com/authors/' + $routeParams.authorID).success(function(author) {
       $scope.author = author.data[0];
     });
   }
@@ -318,9 +318,9 @@ gEatsControllers.controller('AuthorDetailCtrl', ['$scope', '$location', '$http',
 
 gEatsControllers.controller('EditAuthorCtrl', ['$scope', '$location', '$http', '$routeParams',
   function($scope, $location, $http, $routeParams) {
-    $http.get('http://localhost:3000/authors/' + $routeParams.authorID)
+    $http.get('https://galvanizereads.herokuapp.com/authors/' + $routeParams.authorID)
       .success(function(author) {
-        $http.get('http://localhost:3000/books')
+        $http.get('https://galvanizereads.herokuapp.com/books')
           .success(function(books) {
             $scope.author = author.data[0];
             //add already existing books to booksToAdd
@@ -355,7 +355,7 @@ gEatsControllers.controller('EditAuthorCtrl', ['$scope', '$location', '$http', '
 
       $http({
         method: 'PUT',
-        url: 'http://localhost:3000/authors/' + $routeParams.authorID + '/edit',
+        url: 'https://galvanizereads.herokuapp.com/authors/' + $routeParams.authorID + '/edit',
         data: {
           first_name: $scope.author.first_name,
           last_name: $scope.author.last_name,
