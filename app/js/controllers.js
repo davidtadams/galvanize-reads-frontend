@@ -71,3 +71,24 @@ gEatsControllers.controller('AddBookCtrl', ['$scope', '$location', '$http',
     }
   }
 ]);
+
+gEatsControllers.controller('DeleteBookCtrl', ['$scope', '$location', '$http', '$routeParams',
+  function($scope, $location, $http, $routeParams) {
+    $http.get('http://localhost:3000/books/' + $routeParams.bookID).success(function(book) {
+      $scope.book = book.data[0];
+    });
+
+    $scope.deleteBook = function(bookID) {
+      $http.delete('http://localhost:3000/books/' + bookID + '/delete')
+        .then(
+          function(response) {
+            console.log('Delete successful: ', response);
+            $location.path('/books');
+          },
+          function(response) {
+            console.log('Delete did not work: ', response);
+          }
+        )
+    }
+  }
+]);

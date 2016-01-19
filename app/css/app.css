@@ -50,3 +50,7 @@
 select.form-control.add-author-select {
   width: 75%;
 }
+
+.delete-book-btn {
+  margin-top: 50px;
+}
