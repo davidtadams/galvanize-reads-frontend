@@ -30,7 +30,7 @@
 .jumbotron a {
   margin-top: 20px;
 }
-
+/* styles for book views */
 .book-header-btn {
   margin-left: 10px;
 }
@@ -56,5 +56,34 @@ select.form-control.add-author-select {
 }
 
 .delete-book-btn {
+  margin-top: 50px;
+}
+
+/* Styles for author views */
+.author-header-btn {
+  margin-left: 10px;
+}
+
+.author-container {
+  padding-bottom: 20px;
+}
+
+.author-image {
+  margin-top: 25px;
+}
+
+.add-author-form {
+  margin-bottom: 100px;
+}
+
+.edit-author-form {
+  margin-bottom: 100px;
+}
+
+select.form-control.add-book-select {
+  width: 75%;
+}
+
+.delete-author-btn {
   margin-top: 50px;
 }

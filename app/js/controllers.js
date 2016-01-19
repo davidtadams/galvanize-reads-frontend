@@ -1,5 +1,10 @@
 var gEatsControllers = angular.module('gEatsControllers', []);
 
+/*-----------------------------------------------------------------------------
+  THIS IS ALL OF THE CONTOLLERS FOR BOOKS
+  Search *CONTROLLER_AUTHORS* for authors
+  *CONTROLLER_BOOKS*
+-----------------------------------------------------------------------------*/
 gEatsControllers.controller('BookListCtrl', ['$scope', '$http',
   function($scope, $http) {
     $http.get('http://localhost:3000/books').success(function(books) {
@@ -192,5 +197,19 @@ gEatsControllers.controller('EditBookCtrl', ['$scope', '$location', '$http', '$r
         $(event.currentTarget.parentElement).remove();
       }
     }
+  }
+]);
+
+
+/*-----------------------------------------------------------------------------
+  THIS IS ALL OF THE CONTOLLERS FOR AUTHORS
+  Search *CONTROLLER_BOOKS* for books
+  *CONTROLLER_AUTHORS*
+-----------------------------------------------------------------------------*/
+gEatsControllers.controller('AuthorListCtrl', ['$scope', '$http',
+  function($scope, $http) {
+    $http.get('http://localhost:3000/authors').success(function(authors) {
+      $scope.authors = authors.data;
+    });
   }
 ]);
