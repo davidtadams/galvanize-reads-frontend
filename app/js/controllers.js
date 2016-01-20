@@ -350,9 +350,6 @@ gEatsControllers.controller('EditAuthorCtrl', ['$scope', '$location', '$http', '
         books.push(prop);
       }
 
-      console.log('this is put data for author: ', $scope.author);
-      console.log('this is books array: ', books);
-
       $http({
         method: 'PUT',
         url: 'https://galvanizereads.herokuapp.com/authors/' + $routeParams.authorID + '/edit',
@@ -381,10 +378,8 @@ gEatsControllers.controller('EditAuthorCtrl', ['$scope', '$location', '$http', '
       if (book != null) {
         $('.book-list-placeholder').remove();
         $('option[value="' + book + '"]').remove();
-
         book = book.split(',');
         $scope.booksToAdd[book[0]] = book[1];
-
         $('.new-book-list').append('<li class="list-group-item" data-bookid=' +
           book[0] + '><p>' + book[1] +
           '</p><button type="button" name="deleteBookBtn" class="btn btn-danger btn-xs pull-right edit-remove-book">Remove</button></li>'
@@ -397,7 +392,7 @@ gEatsControllers.controller('EditAuthorCtrl', ['$scope', '$location', '$http', '
 
     function removeBook(event) {
       var bookID = event.currentTarget.parentElement.dataset.bookid;
-      var bookTitle = event.currentTarget.previousSibling.innerText;
+      var bookTitle = event.currentTarget.previousSibling.data;
       delete $scope.booksToAdd[bookID];
       $('.add-book-select').append('<option ng-repeat="book in books" value="' + bookID + ',' + bookTitle + '" ' +
         'class="ng-binding ng-scope">' + bookTitle + '</option>'
